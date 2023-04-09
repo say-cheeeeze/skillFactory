@@ -86,11 +86,6 @@ public class Mode {
 			}
 			System.out.println( "같은 값의 빈도수 가진게 1개밖에 없어요. : " + returnVal );
 		}
-		
-		
-		
 		System.out.println( "프로그램 종료..... 최빈값 : " + returnVal );
-		
-		
 	}
 }
