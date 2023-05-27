@@ -10,7 +10,7 @@ package programmers.level1;
  * 12	28
  * 5	6
  */
-public class Q12928 {
+public class Q12928_Measure {
 	
 	public int solution( int n ) {
 		int answer = 0;
@@ -25,7 +25,7 @@ public class Q12928 {
 	
 	public static void main( String[] args ) {
 		
-		Q12928 c = new Q12928();
+		Q12928_Measure c = new Q12928_Measure();
 		int answer = c.solution( 12 );
 		System.out.println( answer );
 	}

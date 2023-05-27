@@ -13,7 +13,7 @@ import java.util.Arrays;
  * 123	6
  * 987	24
  */
-public class Q12931 {
+public class Q12931_SumDigit {
 	
 	public static void main( String[] args ) {
 		// solution( 123 );
