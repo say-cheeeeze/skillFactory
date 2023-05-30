@@ -1,4 +1,4 @@
-package baekjoon.chap04;
+package baekjoon.chap04array1;
 import java.util.Scanner;
 
 public class Q10952{

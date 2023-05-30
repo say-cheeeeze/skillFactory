@@ -1,4 +1,4 @@
-package baekjoon.chap03;import java.util.Scanner;
+package baekjoon.chap03loop;import java.util.Scanner;
 
 public class Q8393{
     public static void main(String[] args){

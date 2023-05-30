@@ -1,4 +1,4 @@
-package baekjoon.chapter13sort;
+package baekjoon.chap13sort;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

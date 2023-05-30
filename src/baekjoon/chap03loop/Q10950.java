@@ -1,4 +1,4 @@
-package baekjoon.chap03;
+package baekjoon.chap03loop;
 import java.util.Scanner;
 
 public class Q10950{
