@@ -116,7 +116,7 @@ public class Q10810 {
 	
 	/**
 	 * 참고할만한 다른 사람의 해결
-	 *
+	 *	11572KB	76ms
 	 */
 	public static void solution3() throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

@@ -1,4 +1,4 @@
-package baekjoon.chap04array1;
+package baekjoon.chap04array1.q1110;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

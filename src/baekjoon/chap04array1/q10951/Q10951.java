@@ -1,4 +1,4 @@
-package baekjoon.chap04array1;
+package baekjoon.chap04array1.q10951;
 
 import java.util.Scanner;
 
