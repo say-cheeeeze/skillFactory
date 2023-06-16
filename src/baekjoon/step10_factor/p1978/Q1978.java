@@ -47,7 +47,7 @@ public class Q1978 {
 				continue;
 			}
 			
-			System.out.println( "primeCnt++" );
+			System.out.println( "Cnt++" );
 			primeCnt++;
 		}
 		
