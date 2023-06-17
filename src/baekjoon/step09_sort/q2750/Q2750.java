@@ -1,4 +1,4 @@
-package baekjoon.step09_sort;
+package baekjoon.step09_sort.q2750;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
