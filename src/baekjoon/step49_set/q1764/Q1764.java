@@ -14,8 +14,50 @@ public class Q1764 {
 		// test2(); // 맞았습니다!!	25848kb 348ms
 		
 		// 듣보잡 자료형을 TreeSet 말고 ArrayList 로 바꿔봤는데 큰 차이 없다.
-		test3(); // 맞았습니다!!	25704kb	352ms
+		// test3(); // 맞았습니다!!	25704kb	352ms
 		
+		/**
+		 * treeset 말고 set 으로
+		 * Set 의 contains() 는 O(1),
+		 * TreeSet 의 contains() 는 O(log n)
+		 * 이게 좀 더 빠르다.
+		 */
+		test4(); // 맞았습니다!! 25800KB	292ms
+	}
+	public static void test4() throws IOException {
+		
+		BufferedReader br = new BufferedReader( new InputStreamReader( System.in ) );
+		StringBuilder sb = new StringBuilder();
+		String input1 = br.readLine();
+		StringTokenizer st = new StringTokenizer( input1 );
+		int N = Integer.parseInt( st.nextToken() );
+		int M = Integer.parseInt( st.nextToken() );
+		
+		// 듣도 못한 사람 set
+		Set<String> setUnheard = new HashSet<>();
+		
+		// 듣도보도 못한 사람
+		TreeSet<String> setUnheardSeen = new TreeSet<>();
+		
+		for ( int i = 0; i < N; i++ ) {
+			String username = br.readLine();
+			setUnheard.add( username );
+		}
+		
+		for ( int i = 0; i < M; i++ ) {
+			
+			String username = br.readLine();
+			
+			if ( setUnheard.contains( username ) ) {
+				setUnheardSeen.add( username );
+			}
+		}
+		for ( String name : setUnheardSeen ) {
+			sb.append( name ).append( "\n" );
+		}
+		
+		System.out.println( setUnheardSeen.size() );
+		System.out.println( sb );
 	}
 	
 	/**
