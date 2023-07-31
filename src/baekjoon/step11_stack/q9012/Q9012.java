@@ -15,29 +15,6 @@ public class Q9012 {
 		//맞았습니다!!	14908	148
 		test1();
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 	
 	public static void test1() throws IOException {
