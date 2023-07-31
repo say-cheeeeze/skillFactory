@@ -10,34 +10,154 @@ import org.w3c.dom.ls.LSOutput;
 
 public class Q4949 {
 	
+	static String[] strArr;
+	static String[] stack;
+	static int stackSize = 0;
+	
 	public static void main( String[] args ) throws IOException {
 		
 		//		test1();
 		
-		test2();
+		// 틀렸다. 문제를 잘못이해한 부분이 있음.
+		// ( 와 [ 도 순서가 엉키면 안된다.
+		//		test2();
+		
+		
+		test3(); //맞았습니다!!	44748KB	536ms
+		//메모리와 시간이 크게 소요되었다..44MB, 0.5s
+		//20MB, 200ms 이하로 줄여보자
+		
+		
+	}
+	
+	/**
+	 * ( [ ) ] -> 안됨
+	 */
+	public static void test3() throws IOException {
+		
+		// 소괄호가 열렸으면 그 다음엔 소괄호가 닫혀야한다.
+		// 처음에 괄호의 종류를 달리해서 스택을 관리했는데 그 방법이 잘못됐다.
+		
+		BufferedReader br = new BufferedReader( new InputStreamReader( System.in ) );
+		//		String inputStr = br.readLine();
+		String inputStr = "";
+//		inputStr = "( [ ) ]";
+//		inputStr = "So when I die (the [first] I will see in (heaven) is a score list).";
+//		inputStr = "[ first in ] ( first out ).";
+//		inputStr = "Half Moon tonight (At least it is better than no Moon at all].";
+//		inputStr = "A rope may form )( a trail in a maze.";
+//		inputStr = "Help( I[m being held prisoner in a fortune cookie factory)].";
+//		inputStr = "([ (([( [ ] ) ( ) (( ))] )) ]).";
+//		inputStr = ".";
+		inputStr = "((((";
+		
+		int test = 0;
+		while ( test < 1 ) {
+			
+			boolean isHarmonized = checkBracket2( inputStr );
+
+			if ( isHarmonized ) {
+				System.out.println( "yes" );
+			}
+			else {
+				System.out.println( "no" );
+			}
+			test++;
+		}
+	}
+	
+	public static boolean checkBracket2( String inputStr ) {
+		
+		strArr = inputStr.split( "" );
+		stack = new String[ strArr.length ];
+		stackSize = 0;
+		
+		for( int i = 0; i < strArr.length; i++ ) {
+			
+			String str = strArr[ i ];
+			if ( str.equals( "(" ) ) {
+				stack[ stackSize ] = str;
+				stackSize++;
+			}
+			
+			if ( str.equals( "[" ) ) {
+				stack[ stackSize ] = str;
+				stackSize++;
+			}
+			
+			if ( str.equals( ")" ) ) {
+				// stack 이 빈 경우 fail
+				if ( stackSize < 1 ) {
+					return false;
+				}
+				// 마지막 요소가 "("가 아니라면 fail
+				if ( !stack[ stackSize - 1 ].equals( "(" ) ) {
+					return false;
+				}
+				
+				// 그것도 아니라면 이제 뺴면 된다.
+				stack[ stackSize - 1 ] = "";
+				stackSize--;
+			}
+			
+			if ( str.equals( "]" ) ) {
+				// stack 이 빈 경우 fail
+				if ( stackSize < 1 ) {
+					return false;
+				}
+				// 마지막 요소가 "["가 아니라면 fail
+				if ( !stack[ stackSize - 1 ].equals( "[" ) ) {
+					return false;
+				}
+				
+				// 그것도 아니라면 이제 뺴면 된다.
+				stack[ stackSize - 1 ] = "";
+				stackSize--;
+			}
+		}
+		
+		System.out.println( "일단 true 를 다 반환하기는 하는데" +
+							"\n열린 괄호가 남아있다면??" );
+		System.out.println( Arrays.toString( stack ) );
+		
+		System.out.println( stackSize );
+		if ( stackSize == 0 ) {
+			return true;
+		}
+		return false;
 	}
 	
 	public static void test2() throws IOException {
 		
-		String str = "";
+		BufferedReader br = new BufferedReader( new InputStreamReader( System.in ) );
 		
-//		str = "[ first in ] ( first out ).";
-		//str = "([ (([( [ ] ) ( ) (( ))] )) ]).";
-//		str = "So when I die (the [first] I will see in (heaven) is a score list).";
-//		str = "Half Moon tonight (At least it is better than no Moon at all].";
-//		str = "A rope may form )( a trail in a maze.";
-		str = "Help( I[m being held prisoner in a fortune cookie factory)].";
+		String inputStr = "";
 		
-		
-		boolean isBalanced = checkBalance( str );
-		
-		if ( isBalanced ) {
-			System.out.println( "yes" );
+		while ( true ) {
+			
+			inputStr = br.readLine();
+			
+			// 프로그램 종료
+			if ( inputStr.equals( "." ) ) {
+				break;
+			}
+			boolean isBalanced = checkBalance( inputStr );
+			
+			if ( isBalanced ) {
+				System.out.println( "yes" );
+			}
+			else {
+				System.out.println( "no" );
+			}
 		}
-		else {
-			System.out.println( "no" );
-		}
 		
+		//		String str = "";
+		//		str = "[ first in ] ( first out ).";
+		//		str = "([ (([( [ ] ) ( ) (( ))] )) ]).";
+		//		str = "So when I die (the [first] I will see in (heaven) is a score list).";
+		//		str = "Half Moon tonight (At least it is better than no Moon at all].";
+		//		str = "A rope may form )( a trail in a maze.";
+		//		str = "Help( I[m being held prisoner in a fortune cookie factory)].";
 	}
 	
 	/**
@@ -102,7 +222,6 @@ public class Q4949 {
 				}
 			}
 			
-			
 			System.out.println();
 		}
 		
@@ -124,7 +243,7 @@ public class Q4949 {
 		
 		String inputStr = "";
 		
-		while (true) {
+		while ( true ) {
 			
 			inputStr = br.readLine();
 			
