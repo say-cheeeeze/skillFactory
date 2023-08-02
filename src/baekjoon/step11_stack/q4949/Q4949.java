@@ -27,7 +27,29 @@ public class Q4949 {
 		//메모리와 시간이 크게 소요되었다..44MB, 0.5s
 		//20MB, 200ms 이하로 줄여보자
 		
+		// 스택자료구조를 그냥 이용해보자.
+		test4();
+	}
+	
+	public static void test4() throws IOException {
+	
 		
+		
+		// java.util.stack 을 활용해보자.
+		// 기존에는 입력받은 문자열의 길이만큼 배열을 static 으로 가지고 있었다..
+		
+		// 문자열을 굳이 String 배열로 또 나누지 말고
+		// char[] 형으로 하자.
+		
+		/* 아래 구조를 잘 확인하고 적용해보자
+		// 스택이 비어있거나 pop할 원소가 대괄호랑 매칭이 안되는 경우
+		if(stack.empty() || stack.peek() != '[') {
+			return "no";
+		}
+		else {
+			stack.pop();
+		}스택이 빈 경우
+	 	*/
 	}
 	
 	/**
