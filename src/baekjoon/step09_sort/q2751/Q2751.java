@@ -56,6 +56,5 @@ public class Q2751 {
 		List<Integer> numList = Arrays.stream( numArr ).boxed().toList();
 		numList = numList.stream().sorted(Comparator.reverseOrder() ).toList();
 		System.out.println( numList );
-		
 	}
 }
