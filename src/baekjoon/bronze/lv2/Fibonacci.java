@@ -32,12 +32,23 @@ public class Fibonacci {
 		// F(n) = F(n-1) + F(n-2)
 		// F(0) 은 0 이다.
 		// F(1) 은 1 이다.
-		// F(2) = F(0) + F(1) = 0 + 1 = 1 이다.
-		// F(3) = F(1) + F(2) = 1 + 1 = 2 이다.
+		// F(2) = 2번째 피보나치 수 = 0,1,1 = 1
+		// F(3) = 3번째 피보나치 수 = 0,1,1,2 = 2
+		// F(4) = 4번째 피보나치 수 = 0,1,1,2,3 = 3
 		// 주어지는 수는 n 이고 F(n) 의 값을 구하시오
-//		BufferedReader br = new BufferedReader( new InputStreamReader( System.in ) );
-//		String s = br.readLine();
-		int n = 5;
-		
+		BufferedReader br = new BufferedReader( new InputStreamReader( System.in ) );
+		String s = br.readLine();
+		long sum = getFibonacci( Long.parseLong( s ) );
+		System.out.println( sum );
+		br.close();
+	}
+	
+	private static long getFibonacci( long num ) {
+		if ( num <= 1 ) {
+			return num;
+		}
+		else {
+			return getFibonacci( num - 1 ) + getFibonacci( num - 2 );
+		}
 	}
 }
