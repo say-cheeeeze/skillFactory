@@ -1,6 +1,7 @@
 package programmers.beginner;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 /**
  * 정수로 이루어진 리스트 num_list가 주어집니다.
@@ -27,7 +28,13 @@ public class Q181852 {
 	public static int[] solution(int[] num_list) {
 		Arrays.sort( num_list );
 		System.out.println( Arrays.toString( num_list ) );
-//		return Arrays.copyOfRange( num_list, 5, num_list.length );
-		return Arrays.stream(num_list).sorted().skip(5).toArray(); // 이런 방법도 있다.
+		return Arrays.copyOfRange( num_list, 5, num_list.length );
+	}
+	
+	public static int[] solution2(int[] num_list) {
+		// return Arrays.stream(num_list).sorted().skip(5).toArray(); // 이런 방법도 있다.
+		IntStream stream = Arrays.stream( num_list );
+		int[] array = stream.sorted().skip( 5 ).toArray();
+		return array;
 	}
 }
