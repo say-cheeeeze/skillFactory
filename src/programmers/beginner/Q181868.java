@@ -24,6 +24,8 @@ public class Q181868 {
 	
 	public static void main( String[] args ) {
 		String my_string = " i    love    you    ";
+//		my_string = my_string.replaceAll( "[ ]+", "" );
+//		System.out.println( "my_string = " + my_string );
 		String[] solution = solution2( my_string );
 		System.out.println( Arrays.toString( solution ) );
 	}
