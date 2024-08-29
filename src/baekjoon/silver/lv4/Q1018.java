@@ -3,6 +3,7 @@ package baekjoon.silver.lv4;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 /**
@@ -58,9 +59,18 @@ public class Q1018 {
 		BufferedReader br = new BufferedReader( new InputStreamReader( System.in ) );
 		String s = br.readLine();
 		StringTokenizer tokenizer = new StringTokenizer( s );
-		int N = Integer.parseInt( tokenizer.nextToken() );
-		int M = Integer.parseInt( tokenizer.nextToken() );
-		//		int N= 8, M = 8;
+		int N = Integer.parseInt( tokenizer.nextToken() ); // row
+		int M = Integer.parseInt( tokenizer.nextToken() ); // col
+		
+		for( int i = 0; i + 8 <= N; i++ ) {
+			for( int j = 0; j + 8 <= M; j++ ) {
+				System.out.printf( "%d, %d\n", i, j );
+//				int cost = getCost( i,j );
+			}
+		}
+		
+		if ( 1==1 ) return;
+		
 		boolean[][] inputArr = new boolean[N][M];
 		
 		for ( int i = 0; i < N; i++ ) {
@@ -73,25 +83,34 @@ public class Q1018 {
 			}
 		}
 		
+		// System.out.println( Arrays.deepToString( inputArr ) );
+		
 		// 이제 받은 그린 체스판을 검사한다.
 		// 기준은 첫번째 칸의 색깔이고 각 칸이 해당 기준에 대한 정답 색깔이 아닌 경우를 검사한다.
-		int cnt = 0;
-		boolean guide = inputArr[0][0];
+		int cnt1 = 0;
+		int cnt2 = 0;
+		boolean guide1 = inputArr[0][0];
+		boolean guide2 = !guide1;
 		for ( int i = 0; i < N; i++ ) {
 			
 			for( int j = 0; j < M; j++ ) {
-				if ( inputArr[i][j] == guide ) {
-					System.out.printf( "%b (O) ", inputArr[i][j] );
+				System.out.printf( "guide1 / i j => %b, %d %d %b\n", guide1, i, j, inputArr[i][j] != guide1 );
+				if ( inputArr[i][j] != guide1 ) {
+					cnt1++;
 				}
-				else {
-					System.out.printf( "%b (X) ", inputArr[i][j] );
-					cnt++;
+				if ( inputArr[i][j] != guide2 ) {
+					cnt2++;
 				}
-				guide = !guide;
+				
+				guide1 = !guide1;
+				guide2 = !guide2;
+				
 			}
-			guide = !guide;
-			System.out.println();
+			guide1 = !guide1;
+			guide2 = !guide2;
 		}
-		System.out.println( cnt + "개 바꿔야함" );
+		System.out.println( cnt1 + "개 바꿔야함" );
+		System.out.println( "또는 " + cnt2 + "개 바꿔야함" );
+		System.out.println( Math.min( cnt1, cnt2 ) );
 	}
 }
