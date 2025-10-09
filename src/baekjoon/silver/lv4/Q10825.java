@@ -61,13 +61,15 @@ import java.util.*;
  */
 
 class Student {
+	
 	private String name;
-	private int koreaNScore;
+	private int koreanScore;
 	private int mathScore;
 	private int englishScore;
-	public Student(String name, int koreaNScore, int englishScore, int mathScore) {
+	
+	public Student( String name, int koreanScore, int englishScore, int mathScore ) {
 		this.name = name;
-		this.koreaNScore = koreaNScore;
+		this.koreanScore = koreanScore;
 		this.mathScore = mathScore;
 		this.englishScore = englishScore;
 	}
@@ -76,8 +78,8 @@ class Student {
 		return name;
 	}
 	
-	public int getKoreaNScore() {
-		return koreaNScore;
+	public int getKoreanScore() {
+		return koreanScore;
 	}
 	
 	public int getMathScore() {
@@ -91,46 +93,60 @@ class Student {
 	@Override public String toString() {
 		return "Student{" +
 			   "name='" + name + '\'' +
-			   ", koreaNScore=" + koreaNScore +
+			   ", koreanScore=" + koreanScore +
 			   ", englishScore=" + englishScore +
 			   ", mathScore=" + mathScore +
-			   '}' + "\n";
+			   '}';
 	}
+	
 }
+
 public class Q10825 {
 	
-	public static void main(String[] args) throws IOException {
+	public static void main( String[] args ) throws IOException {
+//
+//		String str1 = "nsj";
+//		String str2 = "Sunyoung";
+//		int i = str1.compareTo( str2 );
+//		System.out.println( "i = " + i );
+//
+//		if ( 1==1 ) return;
 		
-		BufferedReader br = new BufferedReader( new InputStreamReader( System.in) );
+		BufferedReader br = new BufferedReader( new InputStreamReader( System.in ) );
 //		int N = Integer.parseInt( br.readLine() );
 		
 		List<Student> students = new ArrayList<Student>();
 		StringTokenizer st = null;
-		/*
-		for( int i = 0; i < N; i++ ) {
-			String s = br.readLine();
-			st = new StringTokenizer( s );
-			String stName = st.nextToken();
-			int korScore = Integer.parseInt( st.nextToken() );
-			int engScore = Integer.parseInt( st.nextToken() );
-			int mathScore = Integer.parseInt( st.nextToken() );
-			students.add( new Student( stName, korScore, engScore, mathScore ) );
-		}*/
+//		for ( int i = 0; i < N; i++ ) {
+//			String s = br.readLine();
+//			st = new StringTokenizer( s );
+//			String stName = st.nextToken();
+//			int korScore = Integer.parseInt( st.nextToken() );
+//			int engScore = Integer.parseInt( st.nextToken() );
+//			int mathScore = Integer.parseInt( st.nextToken() );
+//			students.add( new Student( stName, korScore, engScore, mathScore ) );
+//		}
 		students.add( new Student( "Junkyu", 50, 60, 100 ) );
 		students.add( new Student( "Sangkeun", 80, 60, 50 ) );
 		students.add( new Student( "Sunyoung", 80, 70, 100 ) );
-		students.add( new Student( "Soong", 50, 60, 90 ) );
+		students.add( new Student( "Soong", 50, 60, 100 ) );
 		students.add( new Student( "Haebin", 50, 60, 100 ) );
+		students.add( new Student( "Kangsoo", 60, 80, 100 ) );
+		students.add( new Student( "Donghyuk", 80, 60, 100 ) );
+		students.add( new Student( "Sei", 70, 70, 70 ) );
+		students.add( new Student( "Wonseob", 70, 70, 90 ) );
+		students.add( new Student( "Sanghyun", 70, 70, 80 ) );
+		students.add( new Student( "nsj", 80, 80, 80 ) );
+		students.add( new Student( "Taewhan", 50, 60, 90 ) );
 		
 		Collections.sort( students, new Comparator<Student>() {
 			
 			@Override
 			public int compare( Student o1, Student o2 ) {
-				
-				if ( o1.getKoreaNScore() < o2.getKoreaNScore() ) {
+				if ( o1.getKoreanScore() < o2.getKoreanScore() ) {
 					return 1;
 				}
-				else if ( o1.getKoreaNScore() == o2.getKoreaNScore() ) {
+				else if ( o1.getKoreanScore() == o2.getKoreanScore() ) {
 					if ( o1.getEnglishScore() < o2.getEnglishScore() ) {
 						return 1;
 					}
@@ -140,10 +156,10 @@ public class Q10825 {
 						}
 						else if ( o1.getMathScore() == o2.getMathScore() ) {
 							if ( o1.getName().compareTo( o2.getName() ) > 0 ) {
-								return 1;
+								return -1;
 							}
 							else {
-								return -1;
+								return 1;
 							}
 						}
 						else {
@@ -158,8 +174,12 @@ public class Q10825 {
 					return -1;
 				}
 			}
-		});
+		} );
 		
-		System.out.println( "students = " + students );
+		for ( Student student : students ) {
+			System.out.println( student );
+		}
 	}
+	
+	
 }
